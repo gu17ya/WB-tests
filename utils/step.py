@@ -3,7 +3,7 @@ import inspect
 
 from utils.logger import get_logger
 
-logger = get_logger("step")
+logger = get_logger("Test")
 
 
 class _ReadableDict(dict):
@@ -27,7 +27,7 @@ def step(title: str):
                 name: _ReadableDict(value) if isinstance(value, dict) else value
                 for name, value in arguments.arguments.items()
             }
-            logger.info("STEP: %s", title.format(**values))
+            logger.info("%s", title.format(**values))
             return func(*args, **kwargs)
 
         return wrapper

@@ -2,9 +2,10 @@ import requests
 
 import config
 from utils.step import step
+from http import HTTPStatus
 
 
-def validate_status(response: requests.Response, status: int = 200):
+def validate_status(response: requests.Response, status: int = HTTPStatus.OK):
     """Assert the HTTP status and return the JSON body."""
     assert response.status_code == status, f"{response.request.url}: {response.status_code} {response.text}"
     return response.json()
